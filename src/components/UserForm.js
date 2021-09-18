@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { v4 as uuid } from "uuid";
 
 function UserForm(props) {
   const [name, setName] = useState("");
@@ -8,21 +9,24 @@ function UserForm(props) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    
-    let user = {
+    if (email && name) {
+    let newUser = {
       name: name,
       email: email,
       gen: gen,
+      id: uuid(),
+
     };
 
 
-    props.addUser(user);
+    props.addUser(newUser);
 
 
     setName("");
     setEmail("");
     setgen("");
   }
+}
 
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
