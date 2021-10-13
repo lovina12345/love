@@ -1,12 +1,12 @@
 var initialState = {
     users: [
         {
-            name:"lovina",
+            name:"nana",
         gen:"23"
     },
 
     {
-        name:"lovina",
+        name:"nana",
     gen:"23"
 },
 
