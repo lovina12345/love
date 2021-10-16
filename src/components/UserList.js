@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import User from "./User";
 import { Modal, Button } from "react-bootstrap";
+import {connect} from "react-redux";
 
 function UserList(props) {
 
   return (
     <div>
-      {props.data.map((user) => {
+      {props.userData.map((user) => {
   
         return (
           <User
@@ -20,5 +21,10 @@ function UserList(props) {
     </div>
   );
 }
+const mapstateToprops=(state)=>{
+  return{
+    userData: state.users
+  }
+}
 
-export default UserList;
+export default  connect(mapstateToprops)(UserList);

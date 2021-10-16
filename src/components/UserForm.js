@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
+import {connect} from "react-redux";
+import {addUser} from "../actions/userAction";
 
 function UserForm(props) {
   const [name, setName] = useState("");
@@ -19,7 +21,7 @@ function UserForm(props) {
     };
 
 
-    props.addUser(newUser);
+    props.addNewUser(newUser);
 
 
     setName("");
@@ -30,26 +32,35 @@ function UserForm(props) {
 
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
+      <label>name</label>
       <input
         type="text"
         name="name"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
+      <br></br>
+      <label>email</label>
       <input
         type="email"
         name="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
+      <br></br>
+      <label>gen</label>
       <input
         type="gen"
         name="gen"
         value={gen}
         onChange={(e) => setgen(e.target.value)}
       />
+      <br></br>
       <input type="submit" />
     </form>
   );
 }
-export default UserForm;
+const mapDispatchTopprops ={
+  addNewUser:addUser,
+}
+export default connect(null,mapDispatchTopprops) (UserForm);
