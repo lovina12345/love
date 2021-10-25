@@ -8,7 +8,7 @@ function UserList(props) {
   return (
     <div>
       {props.userData.map((user) => {
-  
+  console.log(user);
         return (
           <User
             user={user}
