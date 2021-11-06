@@ -31,6 +31,9 @@ case "EDIT_USER":
     });
     return {...state, users: updatedUsers};
 
+    case "GET_ALL_USERS":
+        return {...state,users: action.payload };
+
     
      
      default:
